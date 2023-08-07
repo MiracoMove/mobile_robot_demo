@@ -5,9 +5,9 @@
   <xacro:include filename="$(find mm_robot_description)/urdf/robot_core.xacro" />
 
   <!-- Robot simulation description -->
-  <xacro:include filename="$(find mm_robot_simulation)/urdf/gazebo.xacro" />
+  <xacro:include filename="$(find mm_gps_nav_simulation)/urdf/gazebo.xacro" />
 
   <!-- Robot ros2_control settings for wheels -->
-  <xacro:include filename="$(find mm_robot_simulation)/urdf/ros2_control/wheel.xacro" />
+  <xacro:include filename="$(find mm_gps_nav_simulation)/urdf/ros2_control/wheel.xacro" />
 
 </robot>

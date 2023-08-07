@@ -27,7 +27,7 @@
   <!-- ros2_control for simulation -->
   <gazebo>
     <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-      <parameters>$(find mm_robot_simulation)/configs/controllers.yaml</parameters>
+      <parameters>$(find mm_gps_nav_simulation)/configs/controllers.yaml</parameters>
     </plugin>
   </gazebo>
 

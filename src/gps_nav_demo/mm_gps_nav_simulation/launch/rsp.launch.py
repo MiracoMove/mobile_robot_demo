@@ -25,7 +25,7 @@ def generate_launch_description():  # pylint: disable=missing-function-docstring
 def launch_robot_state_publisher():
     """Launch robot state publisher"""
     # Get current ros2 package path
-    pkg_path = FindPackageShare("mm_robot_simulation")
+    pkg_path = FindPackageShare("mm_gps_nav_simulation")
     # Get urdf file path
     urdf = PathJoinSubstitution([pkg_path, "urdf", "robot.urdf.xacro"])
     # Generate robot description
@@ -47,9 +47,9 @@ def launch_robot_state_publisher():
 def launch_gazebo() -> list:
     """Launch gazebo"""
     # Get current package path
-    pkg_path = FindPackageShare("mm_robot_simulation")
+    pkg_path = FindPackageShare("mm_gps_nav_simulation")
     # Set gazebo model path
-    global_share_path = os.path.join(get_package_share_directory("mm_robot_simulation"), "../")
+    global_share_path = os.path.join(get_package_share_directory("mm_gps_nav_simulation"), "../")
     home_path = os.environ["HOME"]
     os.environ["GAZEBO_MODEL_PATH"] = f"{global_share_path}/:{home_path}/.gazebo/models"
 
