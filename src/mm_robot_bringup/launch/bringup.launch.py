@@ -26,6 +26,7 @@ def generate_launch_description():
     return LaunchDescription([
         *declare_launch_arguments(),
         launch_robot_state_publisher(),
+        launch_demo(),
         launch_ros2_control(),
         # launch_navigation_by_condition(sim=False),
         # launch_navigation_by_condition(sim=True),
@@ -38,6 +39,10 @@ def declare_launch_arguments() -> list:
         DeclareLaunchArgument(
             "use_sim_time",
             default_value="false",
+        ),
+        DeclareLaunchArgument(
+            "demo_bringup_pkg",
+            default_value="",
         )
     ]
 
@@ -71,6 +76,18 @@ def launch_ros2_control() -> list:
         }.items()
     )
 
+
+def launch_demo():
+    """Launch demo"""
+    demo_bringup_pkg = LaunchConfiguration("demo_bringup_pkg", default="")
+    pkg = FindPackageShare(demo_bringup_pkg)
+    launch_file = PathJoinSubstitution([pkg, "launch", "bringup.launch.py"])
+    return IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(launch_file),
+        launch_arguments={
+            "use_sim_time": LaunchConfiguration("use_sim_time"),
+        }.items()
+    )
 
 # def launch_navigation_by_condition(sim: bool = False):
 #     """启动导航相关"""
