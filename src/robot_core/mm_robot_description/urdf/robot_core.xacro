@@ -29,4 +29,7 @@
   <!-- IMU link -->
   <xacro:include filename="$(find mm_robot_description)/urdf/robot_imu.xacro" />
 
+  <!-- GPS link -->
+  <xacro:include filename="$(find mm_robot_description)/urdf/robot_gps.xacro" />
+
 </robot>
