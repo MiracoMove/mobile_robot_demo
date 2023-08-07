@@ -105,17 +105,17 @@
     </sensor>
   </gazebo> -->
 
-  <!-- IMU模拟 -->
-  <!-- <gazebo reference="imu_link">
+  <!-- IMU Simulation -->
+  <gazebo reference="imu_link">
     <material>Gazebo/Red</material>
     <gravity>true</gravity>
     <sensor name="imu_sensor" type="imu">
       <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
         <ros>
           <namespace>/</namespace>
-          <remapping>~/out:=imu/fix</remapping>
+          <remapping>~/out:=imu</remapping>
           <qos>
-            <topic name="imu/fix">
+            <topic name="imu">
               <publisher>
                 <reliability>best_effort</reliability>
                 <durability>volatile</durability>
@@ -125,7 +125,7 @@
           </qos>
         </ros>
         <bodyName>imu_link</bodyName>
-        <updateRateHZ>10.0</updateRateHZ>
+        <updateRateHZ>30.0</updateRateHZ>
         <gaussianNoise>0.0</gaussianNoise>
         <xyzOffset>0 0 0</xyzOffset>
         <rpyOffset>0 0 0</rpyOffset>
@@ -136,6 +136,6 @@
       <update_rate>30.0</update_rate>
       <visualize>true</visualize>
     </sensor>
-  </gazebo> -->
+  </gazebo>
 
 </robot>
