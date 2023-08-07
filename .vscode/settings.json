@@ -1,0 +1,71 @@
+{
+  "editor.rulers": [100, 120],
+  "editor.tabSize": 2,
+  "editor.wordWrapColumn": 120,
+  "editor.formatOnSave": true,
+
+  "python.autoComplete.extraPaths": [
+    "/opt/ros/humble/lib/python3.10/site-packages",
+    "/opt/ros/humble/local/lib/python3.10/dist-packages",
+    "${workspaceFolder}/install/lib/python3.10/site-packages",
+    "${workspaceFolder}/install/local/lib/python3.10/dist-packages"
+  ],
+  "python.analysis.extraPaths": [
+    "/opt/ros/humble/lib/python3.10/site-packages",
+    "/opt/ros/humble/local/lib/python3.10/dist-packages",
+    "${workspaceFolder}/install/lib/python3.10/site-packages",
+    "${workspaceFolder}/install/local/lib/python3.10/dist-packages"
+  ],
+  "python.envFile": "${workspaceFolder}/.env",
+  "autopep8.path": ["/usr/bin/autopep8"],
+  "autopep8.args": ["--max-line-length", "100", "--experimental"],
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    // "editor.tabSize": 4
+    "editor.defaultFormatter": "ms-python.autopep8"
+  },
+
+  "cmake.autoSelectActiveFolder": false,
+  "C_Cpp.default.intelliSenseMode": "linux-gcc-x86",
+  "C_Cpp.autoAddFileAssociations": false,
+  "C_Cpp.formatting": "disabled",
+  "uncrustify.configPath.linux": "/opt/ros/humble/lib/python3.10/site-packages/ament_uncrustify/configuration/ament_code_style.cfg",
+  "[cpp]": {
+    "editor.defaultFormatter": "zachflower.uncrustify"
+  },
+
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/.hg/store/**": true,
+    "build/**": true,
+    "log/**": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/build": true,
+    "**/install": true,
+    "**/log": true
+  },
+  "files.associations": {
+    "*.repos": "yaml",
+    "*.world": "xml",
+    "*.xacro": "xml"
+  },
+
+  "powerHeader.variables": [
+    "<author>='Letian Wang'",
+    "email=\"letian.wang@miracomove.com\"",
+    "!date!=new Date().toISOString()"
+  ],
+  "powerHeader.template": "\\nAuthor: <author> (email)\\nMiracoMove (c) $CURRENT_YEAR\\nDesc: ${1:description}\\n",
+  "autoDocstring.docstringFormat": "google",
+  "cmake.sourceDirectory": "${workspaceFolder}/build/ppr_interfaces/ppr_interfaces__py",
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "clangd.path": "/usr/bin/clangd"
+}

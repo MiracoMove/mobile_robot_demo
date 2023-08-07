@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Chassis simulation -->
+  <gazebo reference="base_link">
+    <material>Gazebo/Blue</material>
+    <mu1 value="0.001" />
+    <mu2 value="0.001" />
+  </gazebo>
+
+  <!-- Left front wheel simulation -->
+  <gazebo reference="lf_wheel_link">
+    <material>Gazebo/Green</material>
+    <mu1 value="0.5" />
+    <mu2 value="0.5" />
+  </gazebo>
+
+  <!-- Right front wheel simulation -->
+  <gazebo reference="rf_wheel_link">
+    <material>Gazebo/Green</material>
+    <mu1 value="0.5" />
+    <mu2 value="0.5" />
+  </gazebo>
+
+  <!-- Left backend wheel simulation -->
+  <gazebo reference="lb_wheel_link">
+    <material>Gazebo/Red</material>
+    <mu1 value="0.5" />
+    <mu2 value="0.5" />
+  </gazebo>
+
+  <!-- Right backend wheel simulation -->
+  <gazebo reference="rb_wheel_link">
+    <material>Gazebo/Red</material>
+    <mu1 value="0.5" />
+    <mu2 value="0.5" />
+  </gazebo>
+
+  <!-- 行走相机模拟 -->
+  <!-- <gazebo
+    reference="body_camera_link">
+    <material>Gazebo/Red</material>
+    <sensor name="body_camera_depth" type="depth">
+      <visualize>true</visualize>
+      <update_rate>30.0</update_rate>
+      <camera name="inu">
+        <horizontal_fov>${0.488888 * pi}</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.2</near>
+          <far>4.0</far>
+        </clip>
+      </camera>
+      <plugin name="body_camera_driver" filename="libgazebo_ros_camera.so">
+        <baseline>0.2</baseline>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <frame_name>body_camera_depth_frame</frame_name>
+        <pointCloudCutoff>0.2</pointCloudCutoff>
+        <pointCloudCutoffMax>4.0</pointCloudCutoffMax>
+        <distortionK1>0</distortionK1>
+        <distortionK2>0</distortionK2>
+        <distortionK3>0</distortionK3>
+        <distortionT1>0</distortionT1>
+        <distortionT2>0</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0</Cx>
+        <Cy>0</Cy>
+        <focalLength>0</focalLength>
+        <hackBaseline>0</hackBaseline>
+      </plugin>
+    </sensor>
+  </gazebo> -->
+
+  <!-- GPS模拟 -->
+  <!-- <gazebo reference="gps_link">
+    <sensor name="gps_sensor" type="gps">
+      <always_on>true</always_on>
+      <update_rate>10.0</update_rate>
+      <gps>
+        <position_sensing>
+          <horizontal>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1e-2</stddev>
+            </noise>
+          </horizontal>
+          <vertical>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1</stddev>
+            </noise>
+          </vertical>
+        </position_sensing>
+      </gps>
+      <plugin name="fruit_gps" filename="libgazebo_ros_gps_sensor.so">
+        <ros>
+          <remapping>~/out:=gps/fix</remapping>
+        </ros>
+      </plugin>
+    </sensor>
+  </gazebo> -->
+
+  <!-- IMU模拟 -->
+  <!-- <gazebo reference="imu_link">
+    <material>Gazebo/Red</material>
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <ros>
+          <namespace>/</namespace>
+          <remapping>~/out:=imu/fix</remapping>
+          <qos>
+            <topic name="imu/fix">
+              <publisher>
+                <reliability>best_effort</reliability>
+                <durability>volatile</durability>
+                <history depth="10">keep_last</history>
+              </publisher>
+            </topic>
+          </qos>
+        </ros>
+        <bodyName>imu_link</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+        <initialOrientationAsReference>false</initialOrientationAsReference>
+      </plugin>
+      <always_on>true</always_on>
+      <update_rate>30.0</update_rate>
+      <visualize>true</visualize>
+    </sensor>
+  </gazebo> -->
+
+</robot>

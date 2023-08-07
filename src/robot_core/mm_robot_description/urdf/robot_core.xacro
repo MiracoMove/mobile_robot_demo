@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Inertial macros -->
+  <xacro:include filename="$(find mm_robot_description)/urdf/inertial_macros.xacro" />
+
+  <!-- Color definitions -->
+  <material name="red">
+    <color rgba="1 0 0 1" />
+  </material>
+
+  <material name="green">
+    <color rgba="0 1 0 1" />
+  </material>
+
+  <material name="blue">
+    <color rgba="0 0 1 1" />
+  </material>
+
+  <material name="black">
+    <color rgba="0 0 0 1" />
+  </material>
+
+  <link name="base_footprint" />
+
+  <!-- Chassis link -->
+  <xacro:include filename="$(find mm_robot_description)/urdf/robot_chassis.xacro" />
+
+</robot>
