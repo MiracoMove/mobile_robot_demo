@@ -246,3 +246,5 @@ CATKIN_IGNORE
 
 install
 log
+
+robot_localization_debug.txt
