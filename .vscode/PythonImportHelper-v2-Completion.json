@@ -112,6 +112,158 @@
         "documentation": {}
     },
     {
+        "label": "LaunchDescription",
+        "importPath": "launch",
+        "description": "launch",
+        "isExtraImport": true,
+        "detail": "launch",
+        "documentation": {}
+    },
+    {
+        "label": "LaunchDescription",
+        "importPath": "launch",
+        "description": "launch",
+        "isExtraImport": true,
+        "detail": "launch",
+        "documentation": {}
+    },
+    {
+        "label": "DeclareLaunchArgument",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "ExecuteProcess",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "IncludeLaunchDescription",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "TimerAction",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "DeclareLaunchArgument",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "EmitEvent",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterEventHandler",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "DeclareLaunchArgument",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "EmitEvent",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterEventHandler",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "IncludeLaunchDescription",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "TimerAction",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "DeclareLaunchArgument",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "IncludeLaunchDescription",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "DeclareLaunchArgument",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "DeclareLaunchArgument",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "IncludeLaunchDescription",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
         "label": "DeclareLaunchArgument",
         "importPath": "launch.actions",
         "description": "launch.actions",
@@ -225,126 +377,6 @@
     },
     {
         "label": "DeclareLaunchArgument",
-        "importPath": "launch.actions",
-        "description": "launch.actions",
-        "isExtraImport": true,
-        "detail": "launch.actions",
-        "documentation": {}
-    },
-    {
-        "label": "IncludeLaunchDescription",
-        "importPath": "launch.actions",
-        "description": "launch.actions",
-        "isExtraImport": true,
-        "detail": "launch.actions",
-        "documentation": {}
-    },
-    {
-        "label": "DeclareLaunchArgument",
-        "importPath": "launch.actions",
-        "description": "launch.actions",
-        "isExtraImport": true,
-        "detail": "launch.actions",
-        "documentation": {}
-    },
-    {
-        "label": "ExecuteProcess",
-        "importPath": "launch.actions",
-        "description": "launch.actions",
-        "isExtraImport": true,
-        "detail": "launch.actions",
-        "documentation": {}
-    },
-    {
-        "label": "IncludeLaunchDescription",
-        "importPath": "launch.actions",
-        "description": "launch.actions",
-        "isExtraImport": true,
-        "detail": "launch.actions",
-        "documentation": {}
-    },
-    {
-        "label": "TimerAction",
-        "importPath": "launch.actions",
-        "description": "launch.actions",
-        "isExtraImport": true,
-        "detail": "launch.actions",
-        "documentation": {}
-    },
-    {
-        "label": "DeclareLaunchArgument",
-        "importPath": "launch.actions",
-        "description": "launch.actions",
-        "isExtraImport": true,
-        "detail": "launch.actions",
-        "documentation": {}
-    },
-    {
-        "label": "EmitEvent",
-        "importPath": "launch.actions",
-        "description": "launch.actions",
-        "isExtraImport": true,
-        "detail": "launch.actions",
-        "documentation": {}
-    },
-    {
-        "label": "RegisterEventHandler",
-        "importPath": "launch.actions",
-        "description": "launch.actions",
-        "isExtraImport": true,
-        "detail": "launch.actions",
-        "documentation": {}
-    },
-    {
-        "label": "DeclareLaunchArgument",
-        "importPath": "launch.actions",
-        "description": "launch.actions",
-        "isExtraImport": true,
-        "detail": "launch.actions",
-        "documentation": {}
-    },
-    {
-        "label": "EmitEvent",
-        "importPath": "launch.actions",
-        "description": "launch.actions",
-        "isExtraImport": true,
-        "detail": "launch.actions",
-        "documentation": {}
-    },
-    {
-        "label": "RegisterEventHandler",
-        "importPath": "launch.actions",
-        "description": "launch.actions",
-        "isExtraImport": true,
-        "detail": "launch.actions",
-        "documentation": {}
-    },
-    {
-        "label": "IncludeLaunchDescription",
-        "importPath": "launch.actions",
-        "description": "launch.actions",
-        "isExtraImport": true,
-        "detail": "launch.actions",
-        "documentation": {}
-    },
-    {
-        "label": "TimerAction",
-        "importPath": "launch.actions",
-        "description": "launch.actions",
-        "isExtraImport": true,
-        "detail": "launch.actions",
-        "documentation": {}
-    },
-    {
-        "label": "DeclareLaunchArgument",
-        "importPath": "launch.actions",
-        "description": "launch.actions",
-        "isExtraImport": true,
-        "detail": "launch.actions",
-        "documentation": {}
-    },
-    {
-        "label": "IncludeLaunchDescription",
         "importPath": "launch.actions",
         "description": "launch.actions",
         "isExtraImport": true,
@@ -544,6 +576,22 @@
         "documentation": {}
     },
     {
+        "label": "LaunchConfiguration",
+        "importPath": "launch.substitutions",
+        "description": "launch.substitutions",
+        "isExtraImport": true,
+        "detail": "launch.substitutions",
+        "documentation": {}
+    },
+    {
+        "label": "PathJoinSubstitution",
+        "importPath": "launch.substitutions",
+        "description": "launch.substitutions",
+        "isExtraImport": true,
+        "detail": "launch.substitutions",
+        "documentation": {}
+    },
+    {
         "label": "PathJoinSubstitution",
         "importPath": "launch.substitutions",
         "description": "launch.substitutions",
@@ -632,6 +680,22 @@
         "documentation": {}
     },
     {
+        "label": "LaunchConfiguration",
+        "importPath": "launch.substitutions",
+        "description": "launch.substitutions",
+        "isExtraImport": true,
+        "detail": "launch.substitutions",
+        "documentation": {}
+    },
+    {
+        "label": "PathJoinSubstitution",
+        "importPath": "launch.substitutions",
+        "description": "launch.substitutions",
+        "isExtraImport": true,
+        "detail": "launch.substitutions",
+        "documentation": {}
+    },
+    {
         "label": "PathJoinSubstitution",
         "importPath": "launch.substitutions",
         "description": "launch.substitutions",
@@ -688,6 +752,14 @@
         "documentation": {}
     },
     {
+        "label": "Node",
+        "importPath": "launch_ros.actions",
+        "description": "launch_ros.actions",
+        "isExtraImport": true,
+        "detail": "launch_ros.actions",
+        "documentation": {}
+    },
+    {
         "label": "LifecycleNode",
         "importPath": "launch_ros.actions",
         "description": "launch_ros.actions",
@@ -717,6 +789,30 @@
         "description": "launch_ros.actions",
         "isExtraImport": true,
         "detail": "launch_ros.actions",
+        "documentation": {}
+    },
+    {
+        "label": "Node",
+        "importPath": "launch_ros.actions",
+        "description": "launch_ros.actions",
+        "isExtraImport": true,
+        "detail": "launch_ros.actions",
+        "documentation": {}
+    },
+    {
+        "label": "FindPackageShare",
+        "importPath": "launch_ros.substitutions",
+        "description": "launch_ros.substitutions",
+        "isExtraImport": true,
+        "detail": "launch_ros.substitutions",
+        "documentation": {}
+    },
+    {
+        "label": "FindPackageShare",
+        "importPath": "launch_ros.substitutions",
+        "description": "launch_ros.substitutions",
+        "isExtraImport": true,
+        "detail": "launch_ros.substitutions",
         "documentation": {}
     },
     {
@@ -1241,6 +1337,33 @@
         "description": "install.share.mm_robot_bringup.launch.ros2_control.launch",
         "peekOfCode": "def spawn_joint_broad_controller():\n    \"\"\"Spawn joint broad controller\"\"\"\n    use_sim_time = LaunchConfiguration(\"use_sim_time\", default=\"false\")\n    return Node(\n        package=\"controller_manager\",\n        executable=\"spawner\",\n        arguments=[\"joint_broad\"],\n        output=\"screen\",\n        parameters=[{\"use_sim_time\": use_sim_time}],\n    )",
         "detail": "install.share.mm_robot_bringup.launch.ros2_control.launch",
+        "documentation": {}
+    },
+    {
+        "label": "generate_launch_description",
+        "kind": 2,
+        "importPath": "install.share.mm_robot_bringup.launch.rviz.launch",
+        "description": "install.share.mm_robot_bringup.launch.rviz.launch",
+        "peekOfCode": "def generate_launch_description():  # pylint: disable=missing-function-docstring\n    return LaunchDescription([\n        *declare_launch_arguments(),\n        launch_rviz2()\n    ])\ndef declare_launch_arguments() -> list:\n    \"\"\"定义输入参数\"\"\"\n    return [\n        DeclareLaunchArgument(\n            \"use_sim_time\",",
+        "detail": "install.share.mm_robot_bringup.launch.rviz.launch",
+        "documentation": {}
+    },
+    {
+        "label": "declare_launch_arguments",
+        "kind": 2,
+        "importPath": "install.share.mm_robot_bringup.launch.rviz.launch",
+        "description": "install.share.mm_robot_bringup.launch.rviz.launch",
+        "peekOfCode": "def declare_launch_arguments() -> list:\n    \"\"\"定义输入参数\"\"\"\n    return [\n        DeclareLaunchArgument(\n            \"use_sim_time\",\n            default_value=\"false\",\n        ),\n    ]\ndef launch_rviz2():\n    \"\"\"启动 rviz2\"\"\"",
+        "detail": "install.share.mm_robot_bringup.launch.rviz.launch",
+        "documentation": {}
+    },
+    {
+        "label": "launch_rviz2",
+        "kind": 2,
+        "importPath": "install.share.mm_robot_bringup.launch.rviz.launch",
+        "description": "install.share.mm_robot_bringup.launch.rviz.launch",
+        "peekOfCode": "def launch_rviz2():\n    \"\"\"启动 rviz2\"\"\"\n    use_sim_time = LaunchConfiguration(\"use_sim_time\", default=\"false\")\n    bringup_pkg = FindPackageShare(\"mm_robot_bringup\")\n    rviz_config_file = PathJoinSubstitution([bringup_pkg, \"configs\", \"rviz.rviz\"])\n    return Node(\n        package=\"rviz2\",\n        executable=\"rviz2\",\n        name=\"rviz2\",\n        arguments=[\"-d\", rviz_config_file],",
+        "detail": "install.share.mm_robot_bringup.launch.rviz.launch",
         "documentation": {}
     },
     {
@@ -1853,6 +1976,33 @@
         "description": "src.mm_robot_bringup.launch.ros2_control.launch",
         "peekOfCode": "def spawn_joint_broad_controller():\n    \"\"\"Spawn joint broad controller\"\"\"\n    use_sim_time = LaunchConfiguration(\"use_sim_time\", default=\"false\")\n    return Node(\n        package=\"controller_manager\",\n        executable=\"spawner\",\n        arguments=[\"joint_broad\"],\n        output=\"screen\",\n        parameters=[{\"use_sim_time\": use_sim_time}],\n    )",
         "detail": "src.mm_robot_bringup.launch.ros2_control.launch",
+        "documentation": {}
+    },
+    {
+        "label": "generate_launch_description",
+        "kind": 2,
+        "importPath": "src.mm_robot_bringup.launch.rviz.launch",
+        "description": "src.mm_robot_bringup.launch.rviz.launch",
+        "peekOfCode": "def generate_launch_description():  # pylint: disable=missing-function-docstring\n    return LaunchDescription([\n        *declare_launch_arguments(),\n        launch_rviz2()\n    ])\ndef declare_launch_arguments() -> list:\n    \"\"\"定义输入参数\"\"\"\n    return [\n        DeclareLaunchArgument(\n            \"use_sim_time\",",
+        "detail": "src.mm_robot_bringup.launch.rviz.launch",
+        "documentation": {}
+    },
+    {
+        "label": "declare_launch_arguments",
+        "kind": 2,
+        "importPath": "src.mm_robot_bringup.launch.rviz.launch",
+        "description": "src.mm_robot_bringup.launch.rviz.launch",
+        "peekOfCode": "def declare_launch_arguments() -> list:\n    \"\"\"定义输入参数\"\"\"\n    return [\n        DeclareLaunchArgument(\n            \"use_sim_time\",\n            default_value=\"false\",\n        ),\n    ]\ndef launch_rviz2():\n    \"\"\"启动 rviz2\"\"\"",
+        "detail": "src.mm_robot_bringup.launch.rviz.launch",
+        "documentation": {}
+    },
+    {
+        "label": "launch_rviz2",
+        "kind": 2,
+        "importPath": "src.mm_robot_bringup.launch.rviz.launch",
+        "description": "src.mm_robot_bringup.launch.rviz.launch",
+        "peekOfCode": "def launch_rviz2():\n    \"\"\"启动 rviz2\"\"\"\n    use_sim_time = LaunchConfiguration(\"use_sim_time\", default=\"false\")\n    bringup_pkg = FindPackageShare(\"mm_robot_bringup\")\n    rviz_config_file = PathJoinSubstitution([bringup_pkg, \"configs\", \"rviz.rviz\"])\n    return Node(\n        package=\"rviz2\",\n        executable=\"rviz2\",\n        name=\"rviz2\",\n        arguments=[\"-d\", rviz_config_file],",
+        "detail": "src.mm_robot_bringup.launch.rviz.launch",
         "documentation": {}
     },
     {
