@@ -96,6 +96,22 @@
         "documentation": {}
     },
     {
+        "label": "LaunchDescription",
+        "importPath": "launch",
+        "description": "launch",
+        "isExtraImport": true,
+        "detail": "launch",
+        "documentation": {}
+    },
+    {
+        "label": "LaunchDescription",
+        "importPath": "launch",
+        "description": "launch",
+        "isExtraImport": true,
+        "detail": "launch",
+        "documentation": {}
+    },
+    {
         "label": "DeclareLaunchArgument",
         "importPath": "launch.actions",
         "description": "launch.actions",
@@ -105,6 +121,30 @@
     },
     {
         "label": "IncludeLaunchDescription",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "DeclareLaunchArgument",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "EmitEvent",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterEventHandler",
         "importPath": "launch.actions",
         "description": "launch.actions",
         "isExtraImport": true,
@@ -193,6 +233,30 @@
     },
     {
         "label": "IncludeLaunchDescription",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "DeclareLaunchArgument",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "EmitEvent",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterEventHandler",
         "importPath": "launch.actions",
         "description": "launch.actions",
         "isExtraImport": true,
@@ -345,6 +409,14 @@
     },
     {
         "label": "PathJoinSubstitution",
+        "importPath": "launch.substitutions",
+        "description": "launch.substitutions",
+        "isExtraImport": true,
+        "detail": "launch.substitutions",
+        "documentation": {}
+    },
+    {
+        "label": "LaunchConfiguration",
         "importPath": "launch.substitutions",
         "description": "launch.substitutions",
         "isExtraImport": true,
@@ -417,6 +489,14 @@
     },
     {
         "label": "PathJoinSubstitution",
+        "importPath": "launch.substitutions",
+        "description": "launch.substitutions",
+        "isExtraImport": true,
+        "detail": "launch.substitutions",
+        "documentation": {}
+    },
+    {
+        "label": "LaunchConfiguration",
         "importPath": "launch.substitutions",
         "description": "launch.substitutions",
         "isExtraImport": true,
@@ -560,6 +640,38 @@
         "documentation": {}
     },
     {
+        "label": "OnProcessStart",
+        "importPath": "launch.event_handlers",
+        "description": "launch.event_handlers",
+        "isExtraImport": true,
+        "detail": "launch.event_handlers",
+        "documentation": {}
+    },
+    {
+        "label": "OnProcessStart",
+        "importPath": "launch.event_handlers",
+        "description": "launch.event_handlers",
+        "isExtraImport": true,
+        "detail": "launch.event_handlers",
+        "documentation": {}
+    },
+    {
+        "label": "matches_action",
+        "importPath": "launch.events.matchers",
+        "description": "launch.events.matchers",
+        "isExtraImport": true,
+        "detail": "launch.events.matchers",
+        "documentation": {}
+    },
+    {
+        "label": "matches_action",
+        "importPath": "launch.events.matchers",
+        "description": "launch.events.matchers",
+        "isExtraImport": true,
+        "detail": "launch.events.matchers",
+        "documentation": {}
+    },
+    {
         "label": "matches_action",
         "importPath": "launch.events.matchers",
         "description": "launch.events.matchers",
@@ -584,6 +696,14 @@
         "documentation": {}
     },
     {
+        "label": "LifecycleNode",
+        "importPath": "launch_ros.actions",
+        "description": "launch_ros.actions",
+        "isExtraImport": true,
+        "detail": "launch_ros.actions",
+        "documentation": {}
+    },
+    {
         "label": "Node",
         "importPath": "launch_ros.actions",
         "description": "launch_ros.actions",
@@ -593,6 +713,14 @@
     },
     {
         "label": "Node",
+        "importPath": "launch_ros.actions",
+        "description": "launch_ros.actions",
+        "isExtraImport": true,
+        "detail": "launch_ros.actions",
+        "documentation": {}
+    },
+    {
+        "label": "LifecycleNode",
         "importPath": "launch_ros.actions",
         "description": "launch_ros.actions",
         "isExtraImport": true,
@@ -640,6 +768,22 @@
         "documentation": {}
     },
     {
+        "label": "OnStateTransition",
+        "importPath": "launch_ros.event_handlers",
+        "description": "launch_ros.event_handlers",
+        "isExtraImport": true,
+        "detail": "launch_ros.event_handlers",
+        "documentation": {}
+    },
+    {
+        "label": "OnStateTransition",
+        "importPath": "launch_ros.event_handlers",
+        "description": "launch_ros.event_handlers",
+        "isExtraImport": true,
+        "detail": "launch_ros.event_handlers",
+        "documentation": {}
+    },
+    {
         "label": "ChangeState",
         "importPath": "launch_ros.events.lifecycle",
         "description": "launch_ros.events.lifecycle",
@@ -653,6 +797,38 @@
         "description": "launch_ros.events.lifecycle",
         "isExtraImport": true,
         "detail": "launch_ros.events.lifecycle",
+        "documentation": {}
+    },
+    {
+        "label": "ChangeState",
+        "importPath": "launch_ros.events.lifecycle",
+        "description": "launch_ros.events.lifecycle",
+        "isExtraImport": true,
+        "detail": "launch_ros.events.lifecycle",
+        "documentation": {}
+    },
+    {
+        "label": "ChangeState",
+        "importPath": "launch_ros.events.lifecycle",
+        "description": "launch_ros.events.lifecycle",
+        "isExtraImport": true,
+        "detail": "launch_ros.events.lifecycle",
+        "documentation": {}
+    },
+    {
+        "label": "Transition",
+        "importPath": "lifecycle_msgs.msg",
+        "description": "lifecycle_msgs.msg",
+        "isExtraImport": true,
+        "detail": "lifecycle_msgs.msg",
+        "documentation": {}
+    },
+    {
+        "label": "Transition",
+        "importPath": "lifecycle_msgs.msg",
+        "description": "lifecycle_msgs.msg",
+        "isExtraImport": true,
+        "detail": "lifecycle_msgs.msg",
         "documentation": {}
     },
     {
@@ -767,7 +943,7 @@
         "kind": 2,
         "importPath": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
         "description": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
-        "peekOfCode": "def generate_launch_description():  # pylint: disable=missing-function-docstring\n    return LaunchDescription([\n        *declare_launch_arguments(),\n        launch_gps(),\n    ])\ndef declare_launch_arguments() -> list:\n    \"\"\"Declare launch arguments\"\"\"\n    return [\n        DeclareLaunchArgument(\n            \"use_sim_time\",",
+        "peekOfCode": "def generate_launch_description():  # pylint: disable=missing-function-docstring\n    return LaunchDescription([\n        *declare_launch_arguments(),\n        launch_gps(),\n        launch_imu()\n    ])\ndef declare_launch_arguments() -> list:\n    \"\"\"Declare launch arguments\"\"\"\n    return [\n        DeclareLaunchArgument(",
         "detail": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
         "documentation": {}
     },
@@ -786,6 +962,15 @@
         "importPath": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
         "description": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
         "peekOfCode": "def launch_gps():\n    \"\"\"Launch gps controller\"\"\"\n    pkg = FindPackageShare(\"mm_gps_nav_gps_controller\")\n    launch_file = PathJoinSubstitution([pkg, \"launch\", \"gps.launch.py\"])\n    return IncludeLaunchDescription(\n        PythonLaunchDescriptionSource(launch_file),\n        launch_arguments={\n            \"use_sim_time\": LaunchConfiguration(\"use_sim_time\"),\n        }.items()\n    )",
+        "detail": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
+        "documentation": {}
+    },
+    {
+        "label": "launch_imu",
+        "kind": 2,
+        "importPath": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
+        "description": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
+        "peekOfCode": "def launch_imu():\n    \"\"\"Launch imu controller\"\"\"\n    pkg = FindPackageShare(\"mm_gps_nav_imu_controller\")\n    launch_file = PathJoinSubstitution([pkg, \"launch\", \"imu.launch.py\"])\n    return IncludeLaunchDescription(\n        PythonLaunchDescriptionSource(launch_file),\n        launch_arguments={\n            \"use_sim_time\": LaunchConfiguration(\"use_sim_time\"),\n        }.items()\n    )",
         "detail": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
         "documentation": {}
     },
@@ -814,6 +999,33 @@
         "description": "install.share.mm_gps_nav_gps_controller.launch.gps.launch",
         "peekOfCode": "def launch_gps():\n    \"\"\"Launch gps controller\"\"\"\n    return LifecycleNode(\n        package=\"mm_gps_nav_gps_controller\",\n        executable=\"sim_gps_controller\",\n        name=\"mm_gps_nav_gps_controller\",\n        namespace=\"\",\n        output=\"screen\",\n        parameters=[{\"use_sim_time\": LaunchConfiguration(\"use_sim_time\")}],\n    )",
         "detail": "install.share.mm_gps_nav_gps_controller.launch.gps.launch",
+        "documentation": {}
+    },
+    {
+        "label": "generate_launch_description",
+        "kind": 2,
+        "importPath": "install.share.mm_gps_nav_imu_controller.launch.imu.launch",
+        "description": "install.share.mm_gps_nav_imu_controller.launch.imu.launch",
+        "peekOfCode": "def generate_launch_description():  # pylint: disable=missing-function-docstring\n    imu_node = launch_imu()\n    return LaunchDescription([\n        *declare_launch_arguments(),\n        imu_node,\n        RegisterEventHandler(\n            OnProcessStart(\n                target_action=imu_node,\n                on_start=[\n                    EmitEvent(event=ChangeState(",
+        "detail": "install.share.mm_gps_nav_imu_controller.launch.imu.launch",
+        "documentation": {}
+    },
+    {
+        "label": "declare_launch_arguments",
+        "kind": 2,
+        "importPath": "install.share.mm_gps_nav_imu_controller.launch.imu.launch",
+        "description": "install.share.mm_gps_nav_imu_controller.launch.imu.launch",
+        "peekOfCode": "def declare_launch_arguments() -> list:\n    \"\"\"Declare launch arguments\"\"\"\n    return [\n        DeclareLaunchArgument(\n            \"use_sim_time\",\n            default_value=\"false\",\n        )\n    ]\ndef launch_imu():\n    \"\"\"Launch imu controller\"\"\"",
+        "detail": "install.share.mm_gps_nav_imu_controller.launch.imu.launch",
+        "documentation": {}
+    },
+    {
+        "label": "launch_imu",
+        "kind": 2,
+        "importPath": "install.share.mm_gps_nav_imu_controller.launch.imu.launch",
+        "description": "install.share.mm_gps_nav_imu_controller.launch.imu.launch",
+        "peekOfCode": "def launch_imu():\n    \"\"\"Launch imu controller\"\"\"\n    return LifecycleNode(\n        package=\"mm_gps_nav_imu_controller\",\n        executable=\"sim_imu_controller\",\n        name=\"mm_gps_nav_imu_controller\",\n        namespace=\"\",\n        output=\"screen\",\n        parameters=[{\"use_sim_time\": LaunchConfiguration(\"use_sim_time\")}],\n    )",
+        "detail": "install.share.mm_gps_nav_imu_controller.launch.imu.launch",
         "documentation": {}
     },
     {
@@ -1325,7 +1537,7 @@
         "kind": 2,
         "importPath": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
         "description": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
-        "peekOfCode": "def generate_launch_description():  # pylint: disable=missing-function-docstring\n    return LaunchDescription([\n        *declare_launch_arguments(),\n        launch_gps(),\n    ])\ndef declare_launch_arguments() -> list:\n    \"\"\"Declare launch arguments\"\"\"\n    return [\n        DeclareLaunchArgument(\n            \"use_sim_time\",",
+        "peekOfCode": "def generate_launch_description():  # pylint: disable=missing-function-docstring\n    return LaunchDescription([\n        *declare_launch_arguments(),\n        launch_gps(),\n        launch_imu()\n    ])\ndef declare_launch_arguments() -> list:\n    \"\"\"Declare launch arguments\"\"\"\n    return [\n        DeclareLaunchArgument(",
         "detail": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
         "documentation": {}
     },
@@ -1344,6 +1556,15 @@
         "importPath": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
         "description": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
         "peekOfCode": "def launch_gps():\n    \"\"\"Launch gps controller\"\"\"\n    pkg = FindPackageShare(\"mm_gps_nav_gps_controller\")\n    launch_file = PathJoinSubstitution([pkg, \"launch\", \"gps.launch.py\"])\n    return IncludeLaunchDescription(\n        PythonLaunchDescriptionSource(launch_file),\n        launch_arguments={\n            \"use_sim_time\": LaunchConfiguration(\"use_sim_time\"),\n        }.items()\n    )",
+        "detail": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
+        "documentation": {}
+    },
+    {
+        "label": "launch_imu",
+        "kind": 2,
+        "importPath": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
+        "description": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
+        "peekOfCode": "def launch_imu():\n    \"\"\"Launch imu controller\"\"\"\n    pkg = FindPackageShare(\"mm_gps_nav_imu_controller\")\n    launch_file = PathJoinSubstitution([pkg, \"launch\", \"imu.launch.py\"])\n    return IncludeLaunchDescription(\n        PythonLaunchDescriptionSource(launch_file),\n        launch_arguments={\n            \"use_sim_time\": LaunchConfiguration(\"use_sim_time\"),\n        }.items()\n    )",
         "detail": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
         "documentation": {}
     },
@@ -1372,6 +1593,33 @@
         "description": "src.gps_nav_demo.mm_gps_nav_gps_controller.launch.gps.launch",
         "peekOfCode": "def launch_gps():\n    \"\"\"Launch gps controller\"\"\"\n    return LifecycleNode(\n        package=\"mm_gps_nav_gps_controller\",\n        executable=\"sim_gps_controller\",\n        name=\"mm_gps_nav_gps_controller\",\n        namespace=\"\",\n        output=\"screen\",\n        parameters=[{\"use_sim_time\": LaunchConfiguration(\"use_sim_time\")}],\n    )",
         "detail": "src.gps_nav_demo.mm_gps_nav_gps_controller.launch.gps.launch",
+        "documentation": {}
+    },
+    {
+        "label": "generate_launch_description",
+        "kind": 2,
+        "importPath": "src.gps_nav_demo.mm_gps_nav_imu_controller.launch.imu.launch",
+        "description": "src.gps_nav_demo.mm_gps_nav_imu_controller.launch.imu.launch",
+        "peekOfCode": "def generate_launch_description():  # pylint: disable=missing-function-docstring\n    imu_node = launch_imu()\n    return LaunchDescription([\n        *declare_launch_arguments(),\n        imu_node,\n        RegisterEventHandler(\n            OnProcessStart(\n                target_action=imu_node,\n                on_start=[\n                    EmitEvent(event=ChangeState(",
+        "detail": "src.gps_nav_demo.mm_gps_nav_imu_controller.launch.imu.launch",
+        "documentation": {}
+    },
+    {
+        "label": "declare_launch_arguments",
+        "kind": 2,
+        "importPath": "src.gps_nav_demo.mm_gps_nav_imu_controller.launch.imu.launch",
+        "description": "src.gps_nav_demo.mm_gps_nav_imu_controller.launch.imu.launch",
+        "peekOfCode": "def declare_launch_arguments() -> list:\n    \"\"\"Declare launch arguments\"\"\"\n    return [\n        DeclareLaunchArgument(\n            \"use_sim_time\",\n            default_value=\"false\",\n        )\n    ]\ndef launch_imu():\n    \"\"\"Launch imu controller\"\"\"",
+        "detail": "src.gps_nav_demo.mm_gps_nav_imu_controller.launch.imu.launch",
+        "documentation": {}
+    },
+    {
+        "label": "launch_imu",
+        "kind": 2,
+        "importPath": "src.gps_nav_demo.mm_gps_nav_imu_controller.launch.imu.launch",
+        "description": "src.gps_nav_demo.mm_gps_nav_imu_controller.launch.imu.launch",
+        "peekOfCode": "def launch_imu():\n    \"\"\"Launch imu controller\"\"\"\n    return LifecycleNode(\n        package=\"mm_gps_nav_imu_controller\",\n        executable=\"sim_imu_controller\",\n        name=\"mm_gps_nav_imu_controller\",\n        namespace=\"\",\n        output=\"screen\",\n        parameters=[{\"use_sim_time\": LaunchConfiguration(\"use_sim_time\")}],\n    )",
+        "detail": "src.gps_nav_demo.mm_gps_nav_imu_controller.launch.imu.launch",
         "documentation": {}
     },
     {

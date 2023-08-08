@@ -15,6 +15,7 @@ def generate_launch_description():  # pylint: disable=missing-function-docstring
     return LaunchDescription([
         *declare_launch_arguments(),
         launch_gps(),
+        launch_imu()
     ])
 
 
@@ -32,6 +33,18 @@ def launch_gps():
     """Launch gps controller"""
     pkg = FindPackageShare("mm_gps_nav_gps_controller")
     launch_file = PathJoinSubstitution([pkg, "launch", "gps.launch.py"])
+    return IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(launch_file),
+        launch_arguments={
+            "use_sim_time": LaunchConfiguration("use_sim_time"),
+        }.items()
+    )
+
+
+def launch_imu():
+    """Launch imu controller"""
+    pkg = FindPackageShare("mm_gps_nav_imu_controller")
+    launch_file = PathJoinSubstitution([pkg, "launch", "imu.launch.py"])
     return IncludeLaunchDescription(
         PythonLaunchDescriptionSource(launch_file),
         launch_arguments={
