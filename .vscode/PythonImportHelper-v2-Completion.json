@@ -120,7 +120,23 @@
         "documentation": {}
     },
     {
+        "label": "ExecuteProcess",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
         "label": "IncludeLaunchDescription",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "TimerAction",
         "importPath": "launch.actions",
         "description": "launch.actions",
         "isExtraImport": true,
@@ -232,7 +248,23 @@
         "documentation": {}
     },
     {
+        "label": "ExecuteProcess",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
         "label": "IncludeLaunchDescription",
+        "importPath": "launch.actions",
+        "description": "launch.actions",
+        "isExtraImport": true,
+        "detail": "launch.actions",
+        "documentation": {}
+    },
+    {
+        "label": "TimerAction",
         "importPath": "launch.actions",
         "description": "launch.actions",
         "isExtraImport": true,
@@ -336,11 +368,35 @@
         "documentation": {}
     },
     {
-        "label": "PythonLaunchDescriptionSource",
-        "importPath": "launch.launch_description_sources",
-        "description": "launch.launch_description_sources",
+        "label": "IfCondition",
+        "importPath": "launch.conditions",
+        "description": "launch.conditions",
         "isExtraImport": true,
-        "detail": "launch.launch_description_sources",
+        "detail": "launch.conditions",
+        "documentation": {}
+    },
+    {
+        "label": "UnlessCondition",
+        "importPath": "launch.conditions",
+        "description": "launch.conditions",
+        "isExtraImport": true,
+        "detail": "launch.conditions",
+        "documentation": {}
+    },
+    {
+        "label": "IfCondition",
+        "importPath": "launch.conditions",
+        "description": "launch.conditions",
+        "isExtraImport": true,
+        "detail": "launch.conditions",
+        "documentation": {}
+    },
+    {
+        "label": "UnlessCondition",
+        "importPath": "launch.conditions",
+        "description": "launch.conditions",
+        "isExtraImport": true,
+        "detail": "launch.conditions",
         "documentation": {}
     },
     {
@@ -397,6 +453,22 @@
         "description": "launch.launch_description_sources",
         "isExtraImport": true,
         "detail": "launch.launch_description_sources",
+        "documentation": {}
+    },
+    {
+        "label": "PythonLaunchDescriptionSource",
+        "importPath": "launch.launch_description_sources",
+        "description": "launch.launch_description_sources",
+        "isExtraImport": true,
+        "detail": "launch.launch_description_sources",
+        "documentation": {}
+    },
+    {
+        "label": "FindExecutable",
+        "importPath": "launch.substitutions",
+        "description": "launch.substitutions",
+        "isExtraImport": true,
+        "detail": "launch.substitutions",
         "documentation": {}
     },
     {
@@ -480,6 +552,14 @@
         "documentation": {}
     },
     {
+        "label": "FindExecutable",
+        "importPath": "launch.substitutions",
+        "description": "launch.substitutions",
+        "isExtraImport": true,
+        "detail": "launch.substitutions",
+        "documentation": {}
+    },
+    {
         "label": "LaunchConfiguration",
         "importPath": "launch.substitutions",
         "description": "launch.substitutions",
@@ -560,6 +640,86 @@
         "documentation": {}
     },
     {
+        "label": "Node",
+        "importPath": "launch_ros.actions",
+        "description": "launch_ros.actions",
+        "isExtraImport": true,
+        "detail": "launch_ros.actions",
+        "documentation": {}
+    },
+    {
+        "label": "LifecycleNode",
+        "importPath": "launch_ros.actions",
+        "description": "launch_ros.actions",
+        "isExtraImport": true,
+        "detail": "launch_ros.actions",
+        "documentation": {}
+    },
+    {
+        "label": "LifecycleNode",
+        "importPath": "launch_ros.actions",
+        "description": "launch_ros.actions",
+        "isExtraImport": true,
+        "detail": "launch_ros.actions",
+        "documentation": {}
+    },
+    {
+        "label": "Node",
+        "importPath": "launch_ros.actions",
+        "description": "launch_ros.actions",
+        "isExtraImport": true,
+        "detail": "launch_ros.actions",
+        "documentation": {}
+    },
+    {
+        "label": "Node",
+        "importPath": "launch_ros.actions",
+        "description": "launch_ros.actions",
+        "isExtraImport": true,
+        "detail": "launch_ros.actions",
+        "documentation": {}
+    },
+    {
+        "label": "Node",
+        "importPath": "launch_ros.actions",
+        "description": "launch_ros.actions",
+        "isExtraImport": true,
+        "detail": "launch_ros.actions",
+        "documentation": {}
+    },
+    {
+        "label": "LifecycleNode",
+        "importPath": "launch_ros.actions",
+        "description": "launch_ros.actions",
+        "isExtraImport": true,
+        "detail": "launch_ros.actions",
+        "documentation": {}
+    },
+    {
+        "label": "LifecycleNode",
+        "importPath": "launch_ros.actions",
+        "description": "launch_ros.actions",
+        "isExtraImport": true,
+        "detail": "launch_ros.actions",
+        "documentation": {}
+    },
+    {
+        "label": "Node",
+        "importPath": "launch_ros.actions",
+        "description": "launch_ros.actions",
+        "isExtraImport": true,
+        "detail": "launch_ros.actions",
+        "documentation": {}
+    },
+    {
+        "label": "Node",
+        "importPath": "launch_ros.actions",
+        "description": "launch_ros.actions",
+        "isExtraImport": true,
+        "detail": "launch_ros.actions",
+        "documentation": {}
+    },
+    {
         "label": "FindPackageShare",
         "importPath": "launch_ros.substitutions",
         "description": "launch_ros.substitutions",
@@ -685,70 +845,6 @@
         "description": "launch.events.matchers",
         "isExtraImport": true,
         "detail": "launch.events.matchers",
-        "documentation": {}
-    },
-    {
-        "label": "LifecycleNode",
-        "importPath": "launch_ros.actions",
-        "description": "launch_ros.actions",
-        "isExtraImport": true,
-        "detail": "launch_ros.actions",
-        "documentation": {}
-    },
-    {
-        "label": "LifecycleNode",
-        "importPath": "launch_ros.actions",
-        "description": "launch_ros.actions",
-        "isExtraImport": true,
-        "detail": "launch_ros.actions",
-        "documentation": {}
-    },
-    {
-        "label": "Node",
-        "importPath": "launch_ros.actions",
-        "description": "launch_ros.actions",
-        "isExtraImport": true,
-        "detail": "launch_ros.actions",
-        "documentation": {}
-    },
-    {
-        "label": "Node",
-        "importPath": "launch_ros.actions",
-        "description": "launch_ros.actions",
-        "isExtraImport": true,
-        "detail": "launch_ros.actions",
-        "documentation": {}
-    },
-    {
-        "label": "LifecycleNode",
-        "importPath": "launch_ros.actions",
-        "description": "launch_ros.actions",
-        "isExtraImport": true,
-        "detail": "launch_ros.actions",
-        "documentation": {}
-    },
-    {
-        "label": "LifecycleNode",
-        "importPath": "launch_ros.actions",
-        "description": "launch_ros.actions",
-        "isExtraImport": true,
-        "detail": "launch_ros.actions",
-        "documentation": {}
-    },
-    {
-        "label": "Node",
-        "importPath": "launch_ros.actions",
-        "description": "launch_ros.actions",
-        "isExtraImport": true,
-        "detail": "launch_ros.actions",
-        "documentation": {}
-    },
-    {
-        "label": "Node",
-        "importPath": "launch_ros.actions",
-        "description": "launch_ros.actions",
-        "isExtraImport": true,
-        "detail": "launch_ros.actions",
         "documentation": {}
     },
     {
@@ -873,22 +969,6 @@
         "documentation": {}
     },
     {
-        "label": "UnlessCondition",
-        "importPath": "launch.conditions",
-        "description": "launch.conditions",
-        "isExtraImport": true,
-        "detail": "launch.conditions",
-        "documentation": {}
-    },
-    {
-        "label": "UnlessCondition",
-        "importPath": "launch.conditions",
-        "description": "launch.conditions",
-        "isExtraImport": true,
-        "detail": "launch.conditions",
-        "documentation": {}
-    },
-    {
         "label": "argparse",
         "kind": 6,
         "isExtraImport": true,
@@ -943,7 +1023,7 @@
         "kind": 2,
         "importPath": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
         "description": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
-        "peekOfCode": "def generate_launch_description():  # pylint: disable=missing-function-docstring\n    return LaunchDescription([\n        *declare_launch_arguments(),\n        launch_gps(),\n        launch_imu()\n    ])\ndef declare_launch_arguments() -> list:\n    \"\"\"Declare launch arguments\"\"\"\n    return [\n        DeclareLaunchArgument(",
+        "peekOfCode": "def generate_launch_description():  # pylint: disable=missing-function-docstring\n    return LaunchDescription([\n        *declare_launch_arguments(),\n        launch_gps(),\n        launch_imu(),\n        *launch_robot_localization(),\n        set_datum()\n    ])\ndef declare_launch_arguments() -> list:\n    \"\"\"Declare launch arguments\"\"\"",
         "detail": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
         "documentation": {}
     },
@@ -971,6 +1051,24 @@
         "importPath": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
         "description": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
         "peekOfCode": "def launch_imu():\n    \"\"\"Launch imu controller\"\"\"\n    pkg = FindPackageShare(\"mm_gps_nav_imu_controller\")\n    launch_file = PathJoinSubstitution([pkg, \"launch\", \"imu.launch.py\"])\n    return IncludeLaunchDescription(\n        PythonLaunchDescriptionSource(launch_file),\n        launch_arguments={\n            \"use_sim_time\": LaunchConfiguration(\"use_sim_time\"),\n        }.items()\n    )",
+        "detail": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
+        "documentation": {}
+    },
+    {
+        "label": "launch_robot_localization",
+        "kind": 2,
+        "importPath": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
+        "description": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
+        "peekOfCode": "def launch_robot_localization():\n    \"\"\"Launch robot_localization\"\"\"\n    use_sim_time = LaunchConfiguration(\"use_sim_time\", default=\"false\")\n    sim_pkg = FindPackageShare(\"mm_gps_nav_simulation\")\n    sim_ekf_config = PathJoinSubstitution([sim_pkg, \"configs\", \"ekf.yaml\"])\n    return [\n        Node(\n            package=\"robot_localization\",\n            executable=\"ekf_node\",\n            name=\"ekf_filter_node_odom\",",
+        "detail": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
+        "documentation": {}
+    },
+    {
+        "label": "set_datum",
+        "kind": 2,
+        "importPath": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
+        "description": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
+        "peekOfCode": "def set_datum():\n    \"\"\"Init robot position for localization\"\"\"\n    set_gps_cmd = ExecuteProcess(\n        cmd=[\n            [\n                FindExecutable(name=\"ros2\"),\n                \" service call \",\n                \"/datum \",\n                \"robot_localization/srv/SetDatum \",\n                '\"{geo_pose: {position: {latitude: 31.3943545, longitude: 121.2294018, altitude: 18}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}}\"',",
         "detail": "install.share.mm_gps_nav_bringup.launch.bringup.launch",
         "documentation": {}
     },
@@ -1537,7 +1635,7 @@
         "kind": 2,
         "importPath": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
         "description": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
-        "peekOfCode": "def generate_launch_description():  # pylint: disable=missing-function-docstring\n    return LaunchDescription([\n        *declare_launch_arguments(),\n        launch_gps(),\n        launch_imu()\n    ])\ndef declare_launch_arguments() -> list:\n    \"\"\"Declare launch arguments\"\"\"\n    return [\n        DeclareLaunchArgument(",
+        "peekOfCode": "def generate_launch_description():  # pylint: disable=missing-function-docstring\n    return LaunchDescription([\n        *declare_launch_arguments(),\n        launch_gps(),\n        launch_imu(),\n        *launch_robot_localization(),\n        set_datum()\n    ])\ndef declare_launch_arguments() -> list:\n    \"\"\"Declare launch arguments\"\"\"",
         "detail": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
         "documentation": {}
     },
@@ -1565,6 +1663,24 @@
         "importPath": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
         "description": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
         "peekOfCode": "def launch_imu():\n    \"\"\"Launch imu controller\"\"\"\n    pkg = FindPackageShare(\"mm_gps_nav_imu_controller\")\n    launch_file = PathJoinSubstitution([pkg, \"launch\", \"imu.launch.py\"])\n    return IncludeLaunchDescription(\n        PythonLaunchDescriptionSource(launch_file),\n        launch_arguments={\n            \"use_sim_time\": LaunchConfiguration(\"use_sim_time\"),\n        }.items()\n    )",
+        "detail": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
+        "documentation": {}
+    },
+    {
+        "label": "launch_robot_localization",
+        "kind": 2,
+        "importPath": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
+        "description": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
+        "peekOfCode": "def launch_robot_localization():\n    \"\"\"Launch robot_localization\"\"\"\n    use_sim_time = LaunchConfiguration(\"use_sim_time\", default=\"false\")\n    sim_pkg = FindPackageShare(\"mm_gps_nav_simulation\")\n    sim_ekf_config = PathJoinSubstitution([sim_pkg, \"configs\", \"ekf.yaml\"])\n    return [\n        Node(\n            package=\"robot_localization\",\n            executable=\"ekf_node\",\n            name=\"ekf_filter_node_odom\",",
+        "detail": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
+        "documentation": {}
+    },
+    {
+        "label": "set_datum",
+        "kind": 2,
+        "importPath": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
+        "description": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
+        "peekOfCode": "def set_datum():\n    \"\"\"Init robot position for localization\"\"\"\n    set_gps_cmd = ExecuteProcess(\n        cmd=[\n            [\n                FindExecutable(name=\"ros2\"),\n                \" service call \",\n                \"/datum \",\n                \"robot_localization/srv/SetDatum \",\n                '\"{geo_pose: {position: {latitude: 31.3943545, longitude: 121.2294018, altitude: 18}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}}\"',",
         "detail": "src.gps_nav_demo.mm_gps_nav_bringup.launch.bringup.launch",
         "documentation": {}
     },
