@@ -3,32 +3,28 @@ Author: Letian Wang (letian.wang@miracomove.com)
 MiracoMove (c) 2023
 Desc: Launch gps nav demo
 """
-
-from launch import LaunchDescription
-from launch.actions import (DeclareLaunchArgument, ExecuteProcess,
-                            IncludeLaunchDescription, TimerAction)
-from launch.conditions import IfCondition
-from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import (FindExecutable, LaunchConfiguration,
-                                  PathJoinSubstitution)
-from launch_ros.actions import Node
-from launch_ros.substitutions import FindPackageShare
+import launch
+import launch.launch_description_sources
+import launch_ros
+import nav2_common.launch
 
 
 def generate_launch_description():  # pylint: disable=missing-function-docstring
-    return LaunchDescription([
+    return launch.LaunchDescription([
         *declare_launch_arguments(),
         launch_gps(),
         launch_imu(),
         *launch_robot_localization(),
-        set_datum()
+        launch_nav2(),
+        set_datum(),
+        launch_twist_mux()
     ])
 
 
 def declare_launch_arguments() -> list:
     """Declare launch arguments"""
     return [
-        DeclareLaunchArgument(
+        launch.actions.DeclareLaunchArgument(
             "use_sim_time",
             default_value="false",
         )
@@ -37,37 +33,37 @@ def declare_launch_arguments() -> list:
 
 def launch_gps():
     """Launch gps controller"""
-    pkg = FindPackageShare("mm_gps_nav_gps_controller")
-    launch_file = PathJoinSubstitution([pkg, "launch", "gps.launch.py"])
-    return IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(launch_file),
+    pkg = launch_ros.substitutions.FindPackageShare("mm_gps_nav_gps_controller")
+    launch_file = launch.substitutions.PathJoinSubstitution([pkg, "launch", "gps.launch.py"])
+    return launch.actions.IncludeLaunchDescription(
+        launch.launch_description_sources.PythonLaunchDescriptionSource(launch_file),
         launch_arguments={
-            "use_sim_time": LaunchConfiguration("use_sim_time"),
+            "use_sim_time": launch.substitutions.LaunchConfiguration("use_sim_time"),
         }.items()
     )
 
 
 def launch_imu():
     """Launch imu controller"""
-    pkg = FindPackageShare("mm_gps_nav_imu_controller")
-    launch_file = PathJoinSubstitution([pkg, "launch", "imu.launch.py"])
-    return IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(launch_file),
+    pkg = launch_ros.substitutions.FindPackageShare("mm_gps_nav_imu_controller")
+    launch_file = launch.substitutions.PathJoinSubstitution([pkg, "launch", "imu.launch.py"])
+    return launch.actions.IncludeLaunchDescription(
+        launch.launch_description_sources.PythonLaunchDescriptionSource(launch_file),
         launch_arguments={
-            "use_sim_time": LaunchConfiguration("use_sim_time"),
+            "use_sim_time": launch.substitutions.LaunchConfiguration("use_sim_time"),
         }.items()
     )
 
 
 def launch_robot_localization():
     """Launch robot_localization"""
-    use_sim_time = LaunchConfiguration("use_sim_time", default="false")
+    use_sim_time = launch.substitutions.LaunchConfiguration("use_sim_time", default="false")
 
-    sim_pkg = FindPackageShare("mm_gps_nav_simulation")
-    sim_ekf_config = PathJoinSubstitution([sim_pkg, "configs", "ekf.yaml"])
+    sim_pkg = launch_ros.substitutions.FindPackageShare("mm_gps_nav_simulation")
+    sim_ekf_config = launch.substitutions.PathJoinSubstitution([sim_pkg, "configs", "ekf.yaml"])
 
     return [
-        Node(
+        launch_ros.actions.Node(
             package="robot_localization",
             executable="ekf_node",
             name="ekf_filter_node_odom",
@@ -77,9 +73,9 @@ def launch_robot_localization():
                     {"use_sim_time": use_sim_time},
             ],
             remappings=[("odometry/filtered", "odometry/local")],
-            condition=IfCondition(use_sim_time)
+            condition=launch.conditions.IfCondition(use_sim_time)
         ),
-        Node(
+        launch_ros.actions.Node(
             package="robot_localization",
             executable="ekf_node",
             name="ekf_filter_node_map",
@@ -91,9 +87,9 @@ def launch_robot_localization():
             remappings=[
                 ("odometry/filtered", "odometry/global"),
             ],
-            condition=IfCondition(use_sim_time)
+            condition=launch.conditions.IfCondition(use_sim_time)
         ),
-        Node(
+        launch_ros.actions.Node(
             package="robot_localization",
             executable="navsat_transform_node",
             name="navsat_transform",
@@ -109,17 +105,55 @@ def launch_robot_localization():
                 ("odometry/gps", "odometry/gps"),
                 ("odometry/filtered", "odometry/global"),
             ],
-            condition=IfCondition(use_sim_time)
+            condition=launch.conditions.IfCondition(use_sim_time)
         )
     ]
 
 
+def launch_nav2():
+    """Launch nav2"""
+    use_sim_time = launch.substitutions.LaunchConfiguration("use_sim_time", default="false")
+
+    sim_pkg = launch_ros.substitutions.FindPackageShare("mm_gps_nav_simulation")
+    sim_nav2_config = launch.substitutions.PathJoinSubstitution([sim_pkg, "configs", "nav2.yaml"])
+    sim_nav_through_poses_bt_xml = launch.substitutions.PathJoinSubstitution(
+        [sim_pkg, "configs", "nav_through_poses_bt.xml"])
+    sim_nav2_params = nav2_common.launch.RewrittenYaml(
+        source_file=sim_nav2_config, root_key="",
+        param_rewrites={"default_nav_through_poses_bt_xml": sim_nav_through_poses_bt_xml},
+        convert_types=True)
+
+    nav2_bringup_pkg = launch_ros.substitutions.FindPackageShare("nav2_bringup")
+    return launch.actions.IncludeLaunchDescription(
+        launch.launch_description_sources.PythonLaunchDescriptionSource(
+            launch.substitutions.PathJoinSubstitution(
+                [nav2_bringup_pkg, "launch", "navigation_launch.py"])),
+        launch_arguments={"use_sim_time": use_sim_time, "params_file": sim_nav2_params,
+                          "autostart": "true", }.items(),
+        condition=launch.conditions.IfCondition(use_sim_time))
+
+
+def launch_twist_mux():
+    """启动 twist_mux"""
+    use_sim_time = launch.substitutions.LaunchConfiguration("use_sim_time", default="false")
+    sim_pkg = launch_ros.substitutions.FindPackageShare("mm_gps_nav_simulation")
+    sim_twist_mux_config = launch.substitutions.PathJoinSubstitution(
+        [sim_pkg, "configs", "twist_mux.yaml"])
+    return launch_ros.actions.Node(
+        package="twist_mux",
+        executable="twist_mux",
+        parameters=[sim_twist_mux_config, {"use_sim_time": use_sim_time}],
+        remappings=[("/cmd_vel_out", "/diff_cont/cmd_vel_unstamped")],
+        condition=launch.conditions.IfCondition(use_sim_time),
+    )
+
+
 def set_datum():
     """Init robot position for localization"""
-    set_gps_cmd = ExecuteProcess(
+    set_gps_cmd = launch.actions.ExecuteProcess(
         cmd=[
             [
-                FindExecutable(name="ros2"),
+                launch.substitutions.FindExecutable(name="ros2"),
                 " service call ",
                 "/datum ",
                 "robot_localization/srv/SetDatum ",
@@ -128,4 +162,4 @@ def set_datum():
         ],
         shell=True,
     )
-    return TimerAction(period=3.0, actions=[set_gps_cmd])
+    return launch.actions.TimerAction(period=3.0, actions=[set_gps_cmd])
