@@ -4,4 +4,7 @@
   <!-- Robot appearence description -->
   <xacro:include filename="$(find mm_robot_description)/urdf/robot_core.xacro" />
 
+  <!-- ros2_control for wheel -->
+  <xacro:include filename="$(find mm_robot_description)/urdf/ros2_control/wheel.xacro" />
+
 </robot>

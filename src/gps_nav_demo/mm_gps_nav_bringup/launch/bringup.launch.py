@@ -12,6 +12,7 @@ import nav2_common.launch
 def generate_launch_description():  # pylint: disable=missing-function-docstring
     return launch.LaunchDescription([
         *declare_launch_arguments(),
+        launc_robot(),
         launch_gps(),
         launch_imu(),
         *launch_robot_localization(),
@@ -29,6 +30,18 @@ def declare_launch_arguments() -> list:
             default_value="false",
         )
     ]
+
+
+def launc_robot():
+    """Launch real robot"""
+    pkg = launch_ros.substitutions.FindPackageShare("mm_robot")
+    launch_file = launch.substitutions.PathJoinSubstitution([pkg, "launch", "robot.launch.py"])
+    return launch.actions.IncludeLaunchDescription(
+        launch.launch_description_sources.PythonLaunchDescriptionSource(launch_file),
+        launch_arguments={
+            "use_sim_time": launch.substitutions.LaunchConfiguration("use_sim_time"),
+        }.items()
+    )
 
 
 def launch_gps():

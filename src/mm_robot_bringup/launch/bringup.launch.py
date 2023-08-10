@@ -53,7 +53,7 @@ def launch_robot_state_publisher():
 def launch_ros2_control() -> list:
     """Launch ros2_control"""
     use_sim_time = LaunchConfiguration("use_sim_time", default="false")
-    demo_bringup_pkg = LaunchConfiguration("demo_bringup_pkg", default="")
+    demo_bringup_pkg = FindPackageShare(LaunchConfiguration("demo_bringup_pkg", default=""))
     bringup_pkg = FindPackageShare("mm_robot_bringup")
     config_file = PathJoinSubstitution([demo_bringup_pkg, "configs", "controllers.yaml"])
     ros2_control_launch_file = PathJoinSubstitution(
@@ -62,7 +62,7 @@ def launch_ros2_control() -> list:
         PythonLaunchDescriptionSource(ros2_control_launch_file),
         launch_arguments={
             "use_sim_time": use_sim_time,
-            "config_file": config_file,
+            "config_file": config_file
         }.items()
     )
 
