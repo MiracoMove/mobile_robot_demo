@@ -1,0 +1,72 @@
+//devcontainer.json
+{
+  "name": "mobile_robot_demo_env",
+
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  // "imgage": "Dockerfile",
+
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {},
+
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "bierner.github-markdown-preview",
+        "bierner.markdown-checkbox",
+        "bierner.markdown-emoji",
+        "bierner.markdown-footnotes",
+        "bierner.markdown-mermaid",
+        "bierner.markdown-preview-github-styles",
+        "bierner.markdown-yaml-preamble",
+        "bradlc.vscode-tailwindcss",
+        "codezombiech.gitignore",
+        "dbaeumer.vscode-eslint",
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "epivision.vscode-file-header",
+        "esbenp.prettier-vscode",
+        "GitHub.copilot",
+        "GitHub.copilot-labs",
+        "magicstack.MagicPython",
+        "mhutchie.git-graph",
+        "mike-co.import-sorter",
+        "ms-iot.vscode-ros",
+        "ms-python.autopep8",
+        "ms-python.isort",
+        "ms-python.pylint",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-vscode.cpptools-themes",
+        "njpwerner.autodocstring",
+        "oderwat.indent-rainbow",
+        "redhat.vscode-xml",
+        "redhat.vscode-yaml",
+        "twxs.cmake",
+        "zachflower.uncrustify",
+        "llvm-vs-code-extensions.vscode-clangd"
+      ]
+    }
+  },
+
+  "forwardPorts": [8080,5900,6000],
+  "runArgs": ["--network=host"],
+
+  // "portsAttributes": {
+  //   "9000": {
+  //     "label": "Hello Remote World",
+  //     "onAutoForward": "notify"
+  //   }
+  // },
+
+  "postCreateCommand": "supervisord -c /app/supervisord.conf",
+
+  "remoteUser": "dev"
+}
