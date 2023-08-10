@@ -32,8 +32,9 @@ def generate_launch_description():  # pylint: disable=missing-function-docstring
                         transition_id=Transition.TRANSITION_CONFIGURE,
                     )),
                 ],
-            )))
-        ld.add_action(RegisterEventHandler(RegisterEventHandler(
+            )
+        ))
+        ld.add_action(RegisterEventHandler(
             OnStateTransition(
                 target_lifecycle_node=imu_node,
                 start_state='configuring', goal_state='inactive',
@@ -43,7 +44,8 @@ def generate_launch_description():  # pylint: disable=missing-function-docstring
                         transition_id=Transition.TRANSITION_ACTIVATE,
                     )),
                 ],
-            ))))
+            ),
+        ))
     return ld
 
 
@@ -67,7 +69,7 @@ def launch_imu():
             name="mm_gps_nav_imu_controller",
             namespace="",
             output="screen",
-            parameters=[{"use_sim_time": LaunchConfiguration("use_sim_time")}],
+            parameters=[{"use_sim_time": use_sim_time}],
             condition=IfCondition(use_sim_time)
         ),
         LifecycleNode(
@@ -76,7 +78,7 @@ def launch_imu():
             name="mm_gps_nav_imu_controller",
             namespace="",
             output="screen",
-            parameters=[{"use_sim_time": LaunchConfiguration("use_sim_time")}],
+            parameters=[{"use_sim_time": use_sim_time}],
             condition=UnlessCondition(use_sim_time)
         )
     ]
