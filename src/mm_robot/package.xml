@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>mm_gps_nav_gps_controller</name>
+  <name>mm_robot</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
   <maintainer email="koh.718@gmail.com">koh</maintainer>
@@ -13,15 +13,16 @@
   <test_depend>ament_lint_common</test_depend>
 
   <depend>rclcpp</depend>
-  <depend>rclcpp_lifecycle</depend>
-  <depend>lifecycle_msgs</depend>
+  <depend>geometry_msgs</depend>
   <depend>sensor_msgs</depend>
-  <depend>aros2_core</depend>
-  <depend>aros2_lifecycle</depend>
-  <depend>aros2_hardware</depend>
+  <depend>nav_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>hardware_interface</depend>
+  <depend>pluginlib</depend>
+  <depend>rclcpp_lifecycle</depend>
   <depend>boost</depend>
-  <depend>NemaTode</depend>
-  <depend>tf2</depend>
+  <depend>ros2_controllers</depend>
+  <depend>ros2_control</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

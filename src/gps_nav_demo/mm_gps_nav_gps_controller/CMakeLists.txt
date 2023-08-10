@@ -6,6 +6,8 @@ if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 17)
 endif()
 
+set(NemaTode_DIR "${CMAKE_INSTALL_PREFIX}/lib/cmake/")
+
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
@@ -22,6 +24,12 @@ find_package(lifecycle_msgs REQUIRED)
 find_package(aros2_lifecycle REQUIRED)
 find_package(aros2_core REQUIRED)
 find_package(aros2_hardware REQUIRED)
+find_package(Boost REQUIRED)
+find_package(boost_thread REQUIRED)
+find_package(NemaTode REQUIRED)
+find_package(tf2 REQUIRED)
+
+include_directories(${Boost_INCLUDE_DIR})
 
 set(dependencies
   rclcpp
@@ -42,10 +50,25 @@ ament_target_dependencies(sim_gps_controller
   aros2_lifecycle
   aros2_core
   aros2_hardware
+  tf2
+)
+
+add_executable(wit_gps_controller src/wit_gps_controller.cpp)
+target_link_libraries(wit_gps_controller ${Boost_LIBRARIES} boost_thread NemaTode::NemaTode)
+ament_target_dependencies(wit_gps_controller 
+  rclcpp
+  rclcpp_lifecycle
+  sensor_msgs
+  lifecycle_msgs
+  tf2
+  aros2_lifecycle
+  aros2_core
+  aros2_hardware
 )
 
 install(TARGETS
         sim_gps_controller
+        wit_gps_controller
         DESTINATION lib/${PROJECT_NAME})
 
 

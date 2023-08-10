@@ -1,0 +1,9 @@
+<library path="diffdrive">
+  <class name="tarkbot/DiffDrive"
+    type="tarkbot::DiffDrive"
+    base_class_type="hardware_interface::SystemInterface">
+    <description>
+      Hardware Interface for Differential Drive controller.
+    </description>
+  </class>
+</library>
