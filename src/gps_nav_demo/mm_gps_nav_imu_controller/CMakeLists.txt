@@ -44,8 +44,20 @@ ament_target_dependencies(sim_imu_controller
   aros2_hardware
 )
 
+add_executable(tarkbot_imu_controller src/tarkbot_imu_controller.cpp)
+ament_target_dependencies(tarkbot_imu_controller 
+  rclcpp
+  rclcpp_lifecycle
+  sensor_msgs
+  lifecycle_msgs
+  aros2_lifecycle
+  aros2_core
+  aros2_hardware
+)
+
 install(TARGETS
         sim_imu_controller
+        tarkbot_imu_controller
         DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)

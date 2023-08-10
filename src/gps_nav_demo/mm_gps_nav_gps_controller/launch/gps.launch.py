@@ -6,6 +6,7 @@ Desc: Launch gps controller
 from launch import LaunchDescription
 from launch.actions import (DeclareLaunchArgument, EmitEvent,
                             RegisterEventHandler)
+from launch.conditions import IfCondition, UnlessCondition
 from launch.event_handlers import OnProcessStart
 from launch.events.matchers import matches_action
 from launch.substitutions import LaunchConfiguration
@@ -16,11 +17,13 @@ from lifecycle_msgs.msg import Transition
 
 
 def generate_launch_description():  # pylint: disable=missing-function-docstring
-    gps_node = launch_gps()
-    return LaunchDescription([
-        *declare_launch_arguments(),
-        gps_node,
-        RegisterEventHandler(
+    gps_nodes = launch_gps()
+
+    ld = LaunchDescription()  # pylint: disable=invalid-name
+    ld.add_action(*declare_launch_arguments())
+    for gps_node in gps_nodes:
+        ld.add_action(gps_node)
+        ld.add_action(RegisterEventHandler(
             OnProcessStart(
                 target_action=gps_node,
                 on_start=[
@@ -30,8 +33,8 @@ def generate_launch_description():  # pylint: disable=missing-function-docstring
                     )),
                 ],
             )
-        ),
-        RegisterEventHandler(
+        ))
+        ld.add_action(RegisterEventHandler(
             OnStateTransition(
                 target_lifecycle_node=gps_node,
                 start_state='configuring', goal_state='inactive',
@@ -42,8 +45,8 @@ def generate_launch_description():  # pylint: disable=missing-function-docstring
                     )),
                 ],
             ),
-        ),
-    ])
+        ))
+    return ld
 
 
 def declare_launch_arguments() -> list:
@@ -58,11 +61,24 @@ def declare_launch_arguments() -> list:
 
 def launch_gps():
     """Launch gps controller"""
-    return LifecycleNode(
-        package="mm_gps_nav_gps_controller",
-        executable="sim_gps_controller",
-        name="mm_gps_nav_gps_controller",
-        namespace="",
-        output="screen",
-        parameters=[{"use_sim_time": LaunchConfiguration("use_sim_time")}],
-    )
+    use_sim_time = LaunchConfiguration("use_sim_time")
+    return [
+        LifecycleNode(
+            package="mm_gps_nav_gps_controller",
+            executable="sim_gps_controller",
+            name="mm_gps_nav_gps_controller",
+            namespace="",
+            output="screen",
+            parameters=[{"use_sim_time": use_sim_time}],
+            condition=IfCondition(use_sim_time)
+        ),
+        LifecycleNode(
+            package="mm_gps_nav_gps_controller",
+            executable="wit_gps_controller",
+            name="mm_gps_nav_gps_controller",
+            namespace="",
+            output="screen",
+            parameters=[{"use_sim_time": use_sim_time}],
+            condition=UnlessCondition(use_sim_time)
+        )
+    ]

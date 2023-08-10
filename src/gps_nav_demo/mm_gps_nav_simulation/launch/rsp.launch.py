@@ -85,7 +85,7 @@ def spawn_robot():
             "-topic",
             "robot_description",
             "-entity",
-            "ppr_robot",
+            "mm_robot",
             "-x",
             x_pose,
             "-y",

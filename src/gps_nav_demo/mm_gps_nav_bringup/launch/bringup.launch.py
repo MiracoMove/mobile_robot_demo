@@ -15,7 +15,7 @@ def generate_launch_description():  # pylint: disable=missing-function-docstring
         launch_gps(),
         launch_imu(),
         *launch_robot_localization(),
-        launch_nav2(),
+        *launch_nav2(),
         set_datum(),
         launch_twist_mux()
     ])
@@ -62,52 +62,59 @@ def launch_robot_localization():
     sim_pkg = launch_ros.substitutions.FindPackageShare("mm_gps_nav_simulation")
     sim_ekf_config = launch.substitutions.PathJoinSubstitution([sim_pkg, "configs", "ekf.yaml"])
 
-    return [
-        launch_ros.actions.Node(
-            package="robot_localization",
-            executable="ekf_node",
-            name="ekf_filter_node_odom",
-            output="screen",
-            parameters=[
-                    sim_ekf_config,
+    pkg = launch_ros.substitutions.FindPackageShare("mm_gps_nav_bringup")
+    ekf_config = launch.substitutions.PathJoinSubstitution([pkg, "configs", "ekf.yaml"])
+
+    nodes = []
+    for (config, condition) in [(sim_ekf_config, launch.conditions.IfCondition(use_sim_time)),
+                                (ekf_config, launch.conditions.UnlessCondition(use_sim_time))]:
+        nodes.extend([
+            launch_ros.actions.Node(
+                package="robot_localization",
+                executable="ekf_node",
+                name="ekf_filter_node_odom",
+                output="screen",
+                parameters=[
+                    config,
                     {"use_sim_time": use_sim_time},
-            ],
-            remappings=[("odometry/filtered", "odometry/local")],
-            condition=launch.conditions.IfCondition(use_sim_time)
-        ),
-        launch_ros.actions.Node(
-            package="robot_localization",
-            executable="ekf_node",
-            name="ekf_filter_node_map",
-            output="screen",
-            parameters=[
-                    sim_ekf_config,
+                ],
+                remappings=[("odometry/filtered", "odometry/local")],
+                condition=condition
+            ),
+            launch_ros.actions.Node(
+                package="robot_localization",
+                executable="ekf_node",
+                name="ekf_filter_node_map",
+                output="screen",
+                parameters=[
+                    config,
                     {"use_sim_time": use_sim_time},
-            ],
-            remappings=[
-                ("odometry/filtered", "odometry/global"),
-            ],
-            condition=launch.conditions.IfCondition(use_sim_time)
-        ),
-        launch_ros.actions.Node(
-            package="robot_localization",
-            executable="navsat_transform_node",
-            name="navsat_transform",
-            output="screen",
-            parameters=[
-                    sim_ekf_config,
+                ],
+                remappings=[
+                    ("odometry/filtered", "odometry/global"),
+                ],
+                condition=condition
+            ),
+            launch_ros.actions.Node(
+                package="robot_localization",
+                executable="navsat_transform_node",
+                name="navsat_transform",
+                output="screen",
+                parameters=[
+                    config,
                     {"use_sim_time": use_sim_time},
-            ],
-            remappings=[
-                ("imu", "mm_gps_nav_imu_controller/imu/fix"),
-                ("gps/fix", "mm_gps_nav_gps_controller/gps/fix"),
-                ("gps/filtered", "gps/filtered"),
-                ("odometry/gps", "odometry/gps"),
-                ("odometry/filtered", "odometry/global"),
-            ],
-            condition=launch.conditions.IfCondition(use_sim_time)
-        )
-    ]
+                ],
+                remappings=[
+                    ("imu", "mm_gps_nav_imu_controller/imu/fix"),
+                    ("gps/fix", "mm_gps_nav_gps_controller/gps/fix"),
+                    ("gps/filtered", "gps/filtered"),
+                    ("odometry/gps", "odometry/gps"),
+                    ("odometry/filtered", "odometry/global"),
+                ],
+                condition=condition
+            )
+        ])
+    return nodes
 
 
 def launch_nav2():
@@ -123,14 +130,32 @@ def launch_nav2():
         param_rewrites={"default_nav_through_poses_bt_xml": sim_nav_through_poses_bt_xml},
         convert_types=True)
 
+    pkg = launch_ros.substitutions.FindPackageShare("mm_gps_nav_bringup")
+    nav2_config = launch.substitutions.PathJoinSubstitution([pkg, "configs", "nav2.yaml"])
+    nav_through_poses_bt_xml = launch.substitutions.PathJoinSubstitution(
+        [pkg, "configs", "nav_through_poses_bt.xml"])
+    nav2_params = nav2_common.launch.RewrittenYaml(
+        source_file=nav2_config, root_key="",
+        param_rewrites={"default_nav_through_poses_bt_xml": nav_through_poses_bt_xml},
+        convert_types=True)
+
     nav2_bringup_pkg = launch_ros.substitutions.FindPackageShare("nav2_bringup")
-    return launch.actions.IncludeLaunchDescription(
-        launch.launch_description_sources.PythonLaunchDescriptionSource(
-            launch.substitutions.PathJoinSubstitution(
-                [nav2_bringup_pkg, "launch", "navigation_launch.py"])),
-        launch_arguments={"use_sim_time": use_sim_time, "params_file": sim_nav2_params,
-                          "autostart": "true", }.items(),
-        condition=launch.conditions.IfCondition(use_sim_time))
+    return [
+        launch.actions.IncludeLaunchDescription(
+            launch.launch_description_sources.PythonLaunchDescriptionSource(
+                launch.substitutions.PathJoinSubstitution(
+                    [nav2_bringup_pkg, "launch", "navigation_launch.py"])),
+            launch_arguments={"use_sim_time": use_sim_time, "params_file": sim_nav2_params,
+                              "autostart": "true", }.items(),
+            condition=launch.conditions.IfCondition(use_sim_time)),
+        launch.actions.IncludeLaunchDescription(
+            launch.launch_description_sources.PythonLaunchDescriptionSource(
+                launch.substitutions.PathJoinSubstitution(
+                    [nav2_bringup_pkg, "launch", "navigation_launch.py"])),
+            launch_arguments={"use_sim_time": use_sim_time, "params_file": nav2_params,
+                              "autostart": "true", }.items(),
+            condition=launch.conditions.UnlessCondition(use_sim_time)),
+    ]
 
 
 def launch_twist_mux():
@@ -161,5 +186,6 @@ def set_datum():
             ]
         ],
         shell=True,
+        condition=launch.conditions.IfCondition(launch.substitutions.LaunchConfiguration("use_sim_time")),
     )
     return launch.actions.TimerAction(period=3.0, actions=[set_gps_cmd])
