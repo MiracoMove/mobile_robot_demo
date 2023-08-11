@@ -56,8 +56,8 @@
     }
   },
 
-  "forwardPorts": [8080,5900,6000],
-  "runArgs": ["--network=host"],
+  "forwardPorts": [8080, 5900, 6000],
+  "runArgs": ["--network=host", "--privileged"],
 
   // "portsAttributes": {
   //   "9000": {
@@ -66,7 +66,8 @@
   //   }
   // },
 
-  "postCreateCommand": "supervisord -c /app/supervisord.conf",
+  // "postCreateCommand": "supervisord -c /app/supervisord.conf",
+  "postStartCommand": "supervisord -c /app/supervisord.conf",
 
   "remoteUser": "dev"
 }
