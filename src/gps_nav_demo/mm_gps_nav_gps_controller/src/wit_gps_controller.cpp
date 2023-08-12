@@ -121,70 +121,93 @@ private:
     nmea::GPSService gps(parser);
     parser.log = false;
 
+    // parser.onSentence += [&](const nmea::NMEASentence & nmea) {
+    //     try {
+    //       RCLCPP_INFO_STREAM(
+    //         get_node()->get_logger(),
+    //         nmea.name);
+    //     } catch (const std::exception & e) {
+    //       RCLCPP_WARN_STREAM(get_node()->get_logger(), e.what());
+    //     }
+    //   };
+
     parser.setSentenceHandler(
       "WTRTK", [&](const nmea::NMEASentence & n) {
-        auto imu_msg = std::make_shared<sensor_msgs::msg::Imu>();
-        imu_msg->header.frame_id = "gps_link";
-        imu_msg->header.stamp = rclcpp::Clock().now();
+        try {
+          auto imu_msg = std::make_shared<sensor_msgs::msg::Imu>();
+          imu_msg->header.frame_id = "gps_link";
+          imu_msg->header.stamp = rclcpp::Clock().now();
 
-        auto roll = std::stod(n.parameters[5]);
-        auto pitch = std::stod(n.parameters[4]);
-        auto yaw = std::stod(n.parameters[6]);
+          auto roll = std::stod(n.parameters[5]);
+          auto pitch = std::stod(n.parameters[4]);
+          auto yaw = std::stod(n.parameters[6]);
 
-        // 将RPY转换成四元数
-        tf2::Quaternion quat;
-        quat.setRPY(roll, pitch, yaw);
-        imu_msg->orientation.x = quat.x();
-        imu_msg->orientation.y = quat.y();
-        imu_msg->orientation.z = quat.z();
-        imu_msg->orientation.w = quat.w();
+          // 将RPY转换成四元数
+          tf2::Quaternion quat;
+          quat.setRPY(roll, pitch, yaw);
+          imu_msg->orientation.x = quat.x();
+          imu_msg->orientation.y = quat.y();
+          imu_msg->orientation.z = quat.z();
+          imu_msg->orientation.w = quat.w();
 
-        imu_msg_ = imu_msg;
+          imu_msg_ = imu_msg;
+        } catch (const std::exception & e) {
+          RCLCPP_WARN_STREAM(get_node()->get_logger(), e.what());
+        }
       });
 
     gps.onUpdate += [&]() {
-        auto gps_msg = std::make_shared<sensor_msgs::msg::NavSatFix>();
-        gps_msg->header.frame_id = "gps_link";
-        gps_msg->header.stamp = rclcpp::Clock().now();
-        gps_msg->status.service = sensor_msgs::msg::NavSatStatus::SERVICE_COMPASS;
-        gps_msg->position_covariance_type = sensor_msgs::msg::NavSatFix::COVARIANCE_TYPE_UNKNOWN;
+        try {
 
-        if (!gps.fix.locked()) {
-          gps_msg->status.status = sensor_msgs::msg::NavSatStatus::STATUS_NO_FIX;
-          gps_msg->position_covariance[0] = 100000.0;
-          gps_msg->position_covariance[4] = 100000.0;
-          gps_msg->position_covariance[8] = 100000.0;
+          auto gps_msg = std::make_shared<sensor_msgs::msg::NavSatFix>();
+          gps_msg->header.frame_id = "gps_link";
+          gps_msg->header.stamp = rclcpp::Clock().now();
+          gps_msg->status.service = sensor_msgs::msg::NavSatStatus::SERVICE_COMPASS;
+          gps_msg->position_covariance_type = sensor_msgs::msg::NavSatFix::COVARIANCE_TYPE_UNKNOWN;
+
+          if (!gps.fix.locked()) {
+            gps_msg->status.status = sensor_msgs::msg::NavSatStatus::STATUS_NO_FIX;
+            gps_msg->position_covariance[0] = 100000.0;
+            gps_msg->position_covariance[4] = 100000.0;
+            gps_msg->position_covariance[8] = 100000.0;
+            gps_msg_ = gps_msg;
+            return;
+          }
+
+          gps_msg->position_covariance_type =
+            sensor_msgs::msg::NavSatFix::COVARIANCE_TYPE_APPROXIMATED;
+          if (gps.fix.quality == 1) {
+            gps_msg->status.status = sensor_msgs::msg::NavSatStatus::STATUS_FIX;
+          } else if (gps.fix.quality == 2) {
+            gps_msg->status.status = sensor_msgs::msg::NavSatStatus::STATUS_SBAS_FIX;
+          } else {
+            gps_msg->status.status = sensor_msgs::msg::NavSatStatus::STATUS_GBAS_FIX;
+          }
+
+          gps_msg->latitude = gps.fix.latitude;
+          gps_msg->longitude = gps.fix.longitude;
+          gps_msg->altitude = gps.fix.altitude;
+
+          gps_msg->position_covariance[0] =
+            std::pow( (gps.fix.horizontalDilution * gps.fix.horizontalAccuracy()), 2);
+          gps_msg->position_covariance[4] = gps_msg->position_covariance[0];
+          gps_msg->position_covariance[8] =
+            std::pow( (gps.fix.verticalDilution * gps.fix.verticalAccuracy()), 2);
+
           gps_msg_ = gps_msg;
-          return;
+        } catch (const std::exception & e) {
+          RCLCPP_WARN_STREAM(get_node()->get_logger(), e.what());
         }
-
-        gps_msg->position_covariance_type =
-          sensor_msgs::msg::NavSatFix::COVARIANCE_TYPE_APPROXIMATED;
-        if (gps.fix.quality == 1) {
-          gps_msg->status.status = sensor_msgs::msg::NavSatStatus::STATUS_FIX;
-        } else if (gps.fix.quality == 2) {
-          gps_msg->status.status = sensor_msgs::msg::NavSatStatus::STATUS_SBAS_FIX;
-        } else {
-          gps_msg->status.status = sensor_msgs::msg::NavSatStatus::STATUS_GBAS_FIX;
-        }
-
-        gps_msg->latitude = gps.fix.latitude;
-        gps_msg->longitude = gps.fix.longitude;
-        gps_msg->altitude = gps.fix.altitude;
-
-        gps_msg->position_covariance[0] =
-          std::pow( (gps.fix.horizontalDilution * gps.fix.horizontalAccuracy()), 2);
-        gps_msg->position_covariance[4] = gps_msg->position_covariance[0];
-        gps_msg->position_covariance[8] =
-          std::pow( (gps.fix.verticalDilution * gps.fix.verticalAccuracy()), 2);
-
-        gps_msg_ = gps_msg;
       };
 
     while (1) {
-      //读取串口数据
-      boost::asio::read(*serial_ptr_.get(), boost::asio::buffer(&res, 1), err_code_);
-      parser.readByte(res);
+      try {
+        //读取串口数据
+        boost::asio::read(*serial_ptr_.get(), boost::asio::buffer(&res, 1), err_code_);
+        parser.readByte(res);
+      } catch (const std::exception & e) {
+        RCLCPP_WARN_STREAM(get_node()->get_logger(), e.what());
+      }
     }
   }
 

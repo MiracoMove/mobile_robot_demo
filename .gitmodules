@@ -1,7 +1,7 @@
 [submodule "src/awesome-ros2"]
 	path = src/awesome-ros2
 	url = git@github.com:MiracoMove/awesome-ros2.git
-[submodule "src/nema_tode"]
-	path = src/nema_tode
-	url = https://github.com/ckgt/NemaTode.git
+[submodule "src/mm_nema_tode"]
+	path = src/mm_nema_tode
+	url = git@github.com:MiracoMove/NemaTode.git
 	branch = master
