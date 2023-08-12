@@ -57,7 +57,7 @@
   },
 
   "forwardPorts": [8080, 5900, 6000],
-  "runArgs": ["--network=host", "--privileged"],
+  "runArgs": ["--privileged"],
 
   // "portsAttributes": {
   //   "9000": {
