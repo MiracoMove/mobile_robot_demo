@@ -17,7 +17,7 @@ def generate_launch_description():  # pylint: disable=missing-function-docstring
         launch_imu(),
         *launch_robot_localization(),
         *launch_nav2(),
-        set_datum(),
+        # set_datum(),
         launch_twist_mux()
     ])
 
